@@ -94,4 +94,11 @@ def euclidean_dist(fv1,fv2):
 
   return math.sqrt(sum_sq)
 
-print()
+print("---------------Euclidian Distance----------------")
+print("k\t\t1\t4\t6")
+print("normalized: ",knn([5,2.8,4.6,0.7], 1, euclidean_dist, normalize=True), knn([5,2.8,4.6,0.7], 4, euclidean_dist, normalize=True), knn([5,2.8,4.6,0.7], 6, euclidean_dist, normalize=True), sep="\t")
+print("unnormalized: ",knn([5,2.8,4.6,0.7], 1, euclidean_dist), knn([5,2.8,4.6,0.7], 4, euclidean_dist), knn([5,2.8,4.6,0.7], 6, euclidean_dist), sep="\t")
+print("---------------Manhattan Distance----------------")
+print("k\t\t1\t4\t6")
+print("normalized: ",knn([5,2.8,4.6,0.7], 1, manhattan_dist, normalize=True), knn([5,2.8,4.6,0.7], 4, manhattan_dist, normalize=True), knn([5,2.8,4.6,0.7], 6, manhattan_dist, normalize=True), sep="\t")
+print("unnormalized: ",knn([5,2.8,4.6,0.7], 1, manhattan_dist), knn([5,2.8,4.6,0.7], 4, manhattan_dist), knn([5,2.8,4.6,0.7], 6, manhattan_dist), sep="\t")
