@@ -20,16 +20,19 @@ def knn(new_instance, k, dist_metric, normalize=False):
   #the decision to do it like this reduces the amount of I have to write and because i do not presently bias one class
   #over another
   _data = None
+  _new_instance = None
   if normalize:
-    _data = normalize_data(data)
+    _data = normalize_data(data,new_instance)
+    _new_instance = normalize_instance(new_instance)
   else:
     _data = data
+    _new_instance = new_instance
 
   distances = []
 
   for label, fvs in _data.items():
     for feat_vec in fvs:
-      distances.append((dist_metric(feat_vec, new_instance),label))
+      distances.append((dist_metric(feat_vec, _new_instance),label))
   distances = sorted(distances, key=lambda dist: dist[0])
 
   distances = distances[:k]
@@ -56,14 +59,14 @@ def knn(new_instance, k, dist_metric, normalize=False):
 def list_copy(l, num):
   return [list(l) for _ in range(num)]
 
-def normalize_data(data):
+def normalize_data(data, new_instance):
   normalized_data = {}
   for label, feature_vectors in data.items():
     normalized_features = list_copy([],len(feature_vectors))
     for i in range(len(feature_vectors[0])):
       #the initial value only works for the given data
-      max = 0
-      min = 10
+      max = new_instance[i]
+      min = new_instance[i]
       for feature in feature_vectors:
         if feature[i] > max:
           max = feature[i]
@@ -73,8 +76,24 @@ def normalize_data(data):
         # print("i",i,"j",j)
         normalized_features[j].append((feature_vectors[j][i] - min) / (max - min))
     normalized_data[label] = normalized_features
-  
   return normalized_data
+
+def normalize_instance(new_instance):
+  normalized_instance = []
+  feature_vectors = data["A"] + data["B"] + data["C"]
+  for feature_index in range(len(feature_vectors[0])):
+    max = new_instance[feature_index]
+    min = new_instance[feature_index]
+    for feature in feature_vectors:
+      if feature[feature_index] > max:
+        max = feature[feature_index]
+      elif feature[feature_index] < min:
+        min = feature[feature_index]
+    normalized_instance.append((new_instance[feature_index] - min) / (max - min))
+  return normalized_instance
+    
+
+
 
 
 def manhattan_dist(fv1,fv2):
@@ -94,7 +113,13 @@ def euclidean_dist(fv1,fv2):
 
   return math.sqrt(sum_sq)
 
-print("---------------Euclidian Distance----------------")
+# data = {
+#   "A": [[25,13000, 1.65], [50, 12500,1.75]]
+# }
+
+# print(normalize_data(data,[20,12000,1.65]))
+
+print("---------------Euclidean Distance----------------")
 print("k\t\t1\t4\t6")
 print("normalized: ",knn([5,2.8,4.6,0.7], 1, euclidean_dist, normalize=True), knn([5,2.8,4.6,0.7], 4, euclidean_dist, normalize=True), knn([5,2.8,4.6,0.7], 6, euclidean_dist, normalize=True), sep="\t")
 print("unnormalized: ",knn([5,2.8,4.6,0.7], 1, euclidean_dist), knn([5,2.8,4.6,0.7], 4, euclidean_dist), knn([5,2.8,4.6,0.7], 6, euclidean_dist), sep="\t")
