@@ -2,9 +2,9 @@
 import math
 
 data = {
-  "A": [[5.1,3.5,1.3,0.2], [4.7,3.1,1.6,0.2], [6.5, 2.7,4.6,1.5], [4.7,2.4,3.2,1], [6,2.2,5,1.4]],
-  "B": [[5,4.6,1.4,0.1], [5.7,2.8,4.4,1.3],[7.7,3.6,6.7,2.2],[6.9,3.2,5.7,9.3]],
-  "C": [[5.7,3.4,1.3,0.2],[5.9,3.3,4,1.3],[6.3,3.3,4.7,1.4],[7.7,2.6,6.5,2.3],[5.6,2.2,4.6,2]]
+  "A": [[5.1, 3.5, 1.3, 0.2], [4.7, 3.1, 1.6, 0.2], [6.5, 2.7, 4.6, 1.5], [4.7, 2.4, 3.2, 1], [6, 2.2, 5, 1.4]],
+  "B": [[5, 4.6, 1.4, 0.1], [5.7, 2.8, 4.4, 1.3], [7.7, 3.6, 6.7, 2.2], [6.9, 3.2, 5.7, 9.3]],
+  "C": [[5.7, 3.4, 1.3, 0.2], [5.9, 3.3, 4, 1.3], [6.3, 3.3, 4.7, 1.4],[7.7, 2.6, 6.5, 2.3], [5.6, 2.2, 4.6, 2]]
 }
 
 
@@ -36,6 +36,7 @@ def knn(new_instance, k, dist_metric, normalize=False):
   distances = sorted(distances, key=lambda dist: dist[0])
 
   distances = distances[:k]
+  print("neigbors", distances, end="", file=outfile)
 
   freqs = {
     "A": 0,
@@ -93,9 +94,6 @@ def normalize_instance(new_instance):
   return normalized_instance
     
 
-
-
-
 def manhattan_dist(fv1,fv2):
   if len(fv1) != len(fv2):
     return None
@@ -113,17 +111,13 @@ def euclidean_dist(fv1,fv2):
 
   return math.sqrt(sum_sq)
 
-# data = {
-#   "A": [[25,13000, 1.65], [50, 12500,1.75]]
-# }
 
-# print(normalize_data(data,[20,12000,1.65]))
-
-print("---------------Euclidean Distance----------------")
-print("k\t\t1\t4\t6")
-print("normalized: ",knn([5,2.8,4.6,0.7], 1, euclidean_dist, normalize=True), knn([5,2.8,4.6,0.7], 4, euclidean_dist, normalize=True), knn([5,2.8,4.6,0.7], 6, euclidean_dist, normalize=True), sep="\t")
-print("unnormalized: ",knn([5,2.8,4.6,0.7], 1, euclidean_dist), knn([5,2.8,4.6,0.7], 4, euclidean_dist), knn([5,2.8,4.6,0.7], 6, euclidean_dist), sep="\t")
-print("---------------Manhattan Distance----------------")
-print("k\t\t1\t4\t6")
-print("normalized: ",knn([5,2.8,4.6,0.7], 1, manhattan_dist, normalize=True), knn([5,2.8,4.6,0.7], 4, manhattan_dist, normalize=True), knn([5,2.8,4.6,0.7], 6, manhattan_dist, normalize=True), sep="\t")
-print("unnormalized: ",knn([5,2.8,4.6,0.7], 1, manhattan_dist), knn([5,2.8,4.6,0.7], 4, manhattan_dist), knn([5,2.8,4.6,0.7], 6, manhattan_dist), sep="\t")
+with open("out.txt", "w") as outfile:
+  print("---------------Euclidean Distance----------------", file=outfile)
+  print("k\t\t1\t4\t6", file=outfile)
+  print("normalized: ",knn([5,2.8,4.6,0.7], 1, euclidean_dist, normalize=True), knn([5,2.8,4.6,0.7], 4, euclidean_dist, normalize=True), knn([5,2.8,4.6,0.7], 6, euclidean_dist, normalize=True), sep="\t", file=outfile)
+  print("unnormalized: ",knn([5,2.8,4.6,0.7], 1, euclidean_dist), knn([5,2.8,4.6,0.7], 4, euclidean_dist), knn([5,2.8,4.6,0.7], 6, euclidean_dist), sep="\t", file=outfile)
+  print("---------------Manhattan Distance----------------", file=outfile)
+  print("k\t\t1\t4\t6", file=outfile)
+  print("normalized: ",knn([5,2.8,4.6,0.7], 1, manhattan_dist, normalize=True), knn([5,2.8,4.6,0.7], 4, manhattan_dist, normalize=True), knn([5,2.8,4.6,0.7], 6, manhattan_dist, normalize=True), sep="\t", file=outfile)
+  print("unnormalized: ",knn([5,2.8,4.6,0.7], 1, manhattan_dist), knn([5,2.8,4.6,0.7], 4, manhattan_dist), knn([5,2.8,4.6,0.7], 6, manhattan_dist), sep="\t", file=outfile)
