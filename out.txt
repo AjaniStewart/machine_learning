@@ -1,0 +1,11 @@
+neighbors = [(distance_from_new_instance, label), ...]
+
+
+---------------Euclidean Distance----------------
+k:		                  1	                                              4	                                                                                        6
+normalized: 	  classification: B	neighbors [(0.3068, 'B')]  classification: A	neighbors [(0.3068, 'B'), (0.5757, 'A'), (0.7006, 'A'), (0.8397, 'C')] classification: C neighbors [(0.3068, 'B'), (0.5757, 'A'), (0.7006, 'A'), (0.8397, 'C'), (0.8471, 'C'), (0.9209, 'C')]
+unnormalized: 	classification: B	neighbors [(0.9434, 'B')]  classification: A	neighbors [(0.9434, 'B'), (1.3342, 'C'), (1.4177, 'A'), (1.5166, 'A')] classification: C neighbors [(0.9434, 'B'), (1.3342, 'C'), (1.4177, 'A'), (1.5166, 'A'), (1.5524, 'C'), (1.562, 'C')]
+---------------Manhattan Distance----------------
+k:                  		1	                                              4	                                                                                        6
+normalized: 	  classification: B	neighbors [(0.5196, 'B')] classification: A	neighbors [(0.5196, 'B'), (0.8439, 'A'), (1.1376, 'A'), (1.1877, 'C')] classification: C neighbors [(0.5196, 'B'), (0.8439, 'A'), (1.1376, 'A'), (1.1877, 'C'), (1.4505, 'C'), (1.5263, 'B')]
+unnormalized: 	classification: B	neighbors [(1.5, 'B')]    classification: A	neighbors [(1.5, 'B'), (2.4, 'A'), (2.4, 'A'), (2.5, 'C')]             classification: C neighbors [(1.5, 'B'), (2.4, 'A'), (2.4, 'A'), (2.5, 'C'), (2.6, 'C'), (2.6, 'C')]

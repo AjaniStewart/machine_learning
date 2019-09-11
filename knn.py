@@ -43,6 +43,7 @@ def knn(new_instance, k, dist_metric, normalize=False):
     "B": 0,
     "C": 0
   }
+
   for d in distances:
     freqs[d[1]] += 1
 
@@ -100,7 +101,7 @@ def manhattan_dist(fv1,fv2):
   sum = 0
   for i in range(len(fv1)):
     sum += abs(fv1[i]-fv2[i])
-  return sum
+  return round(sum, 4)
 
 def euclidean_dist(fv1,fv2):
   if len(fv1) != len(fv2):
@@ -109,7 +110,7 @@ def euclidean_dist(fv1,fv2):
   for i in range(len(fv1)):
     sum_sq += (fv1[i]-fv2[i])**2
 
-  return math.sqrt(sum_sq)
+  return round(math.sqrt(sum_sq), 4)
 
 
 with open("out.txt", "w") as outfile:
