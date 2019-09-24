@@ -72,7 +72,7 @@ def normalize(data, new_instance):
 
 def manhattan_dist(fv1,fv2):
   if len(fv1) != len(fv2):
-    return None
+    raise ValueError("feature vectors are not the same length!")
   sum = 0
   for i in range(len(fv1)):
     sum += abs(fv1[i]-fv2[i])
@@ -80,11 +80,10 @@ def manhattan_dist(fv1,fv2):
 
 def euclidean_dist(fv1,fv2):
   if len(fv1) != len(fv2):
-    return None
+    raise ValueError("feature vectors are not the same length!")
   sum_sq = 0
   for i in range(len(fv1)):
     sum_sq += (fv1[i]-fv2[i])**2
-
   return round(sqrt(sum_sq), 4)
 
 if __name__ == "__main__":
@@ -95,16 +94,20 @@ if __name__ == "__main__":
   ]
 
   ni = [5,2.8,4.6,0.7]
-  print(knn(data,ni,1,euclidean_dist,normalized=True))
-  print(knn(data,ni,4,euclidean_dist,normalized=True))
-  print(knn(data,ni,6,euclidean_dist,normalized=True))
-  print(knn(data,ni,1,manhattan_dist,normalized=True))
-  print(knn(data,ni,4,manhattan_dist,normalized=True))
-  print(knn(data,ni,6,manhattan_dist,normalized=True))
-  print(knn(data,ni,1,euclidean_dist))
-  print(knn(data,ni,4,euclidean_dist))
-  print(knn(data,ni,6,euclidean_dist))
-  print(knn(data,ni,1,manhattan_dist))
-  print(knn(data,ni,4,manhattan_dist))
-  print(knn(data,ni,6,manhattan_dist))
+  print(knn(data,ni,1,euclidean_dist,normalized=True),end=" ")
+  print(knn(data,ni,4,euclidean_dist,normalized=True),end=" ")
+  print(knn(data,ni,6,euclidean_dist,normalized=True),end=" ")
+  print()
+  print(knn(data,ni,1,manhattan_dist,normalized=True),end=" ")
+  print(knn(data,ni,4,manhattan_dist,normalized=True),end=" ")
+  print(knn(data,ni,6,manhattan_dist,normalized=True),end=" ")
+  print()
+  print(knn(data,ni,1,euclidean_dist),end=" ")
+  print(knn(data,ni,4,euclidean_dist),end=" ")
+  print(knn(data,ni,6,euclidean_dist),end=" ")
+  print()
+  print(knn(data,ni,1,manhattan_dist),end=" ")
+  print(knn(data,ni,4,manhattan_dist),end=" ")
+  print(knn(data,ni,6,manhattan_dist),end=" ")
+  print()
     
