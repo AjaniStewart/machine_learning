@@ -1,0 +1,93 @@
+Without using gain ratio criteria:
+Base Entropy: 1.8879185026711327
+Feature 1:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'high': [1, 1, 0, 0], 'medium': [0, 1, 1, 0], 'low': [2, 2, 0, 1], 'vlow': [0, 1, 1, 1]}
+Split Info: 1.8879185026711327
+Info: 1.36371066471669
+Gain: 0.5242078379544428
+
+Feature 2:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'vhigh': [2, 1, 0, 1], 'medium': [0, 1, 0, 0], 'high': [0, 2, 1, 0], 'low': [1, 1, 1, 1]}
+Split Info: 1.855388542207534
+Info: 1.396240625180289
+Gain: 0.4916778774908437
+
+Feature 3:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'3': [2, 2, 1, 1], '4': [1, 1, 1, 0], '1': [0, 1, 0, 1], '6': [0, 1, 0, 0]}
+Split Info: 1.7295739585136223
+Info: 1.5220552088742003
+Gain: 0.3658632937969324
+
+Feature 4:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'4': [1, 2, 2, 0], '6': [1, 1, 0, 1], '1': [1, 2, 0, 1]}
+Split Info: 1.5545851693377997
+Info: 1.5303773313833566
+Gain: 0.35754117128777607
+
+Feature 5:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'medium': [1, 1, 0, 0], 'small': [1, 3, 0, 1], 'big': [1, 1, 2, 1]}
+Split Info: 1.4833557549816874
+Info: 1.538699453892513
+Gain: 0.34921904877861976
+
+Feature 6:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'high': [1, 2, 1, 1], 'medium': [2, 1, 1, 0], 'low': [0, 2, 0, 1]}
+Split Info: 1.5545851693377994
+Info: 1.5303773313833569
+Gain: 0.35754117128777585
+
+Splitting on feature 1 with gain of 0.5242078379544428
+
+-----------------------------------------------------------------------------
+
+Using gain ratio criteria:
+Base Entropy: 1.8879185026711327
+Feature 1:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'high': [1, 1, 0, 0], 'medium': [0, 1, 1, 0], 'low': [2, 2, 0, 1], 'vlow': [0, 1, 1, 1]}
+Split Info: 1.8879185026711327
+Info: 1.36371066471669
+Gain: 0.27766444219534064
+
+Feature 2:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'vhigh': [2, 1, 0, 1], 'medium': [0, 1, 0, 0], 'high': [0, 2, 1, 0], 'low': [1, 1, 1, 1]}
+Split Info: 1.855388542207534
+Info: 1.396240625180289
+Gain: 0.26499995354387995
+
+Feature 3:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'3': [2, 2, 1, 1], '4': [1, 1, 1, 0], '1': [0, 1, 0, 1], '6': [0, 1, 0, 0]}
+Split Info: 1.7295739585136223
+Info: 1.5220552088742003
+Gain: 0.21153376644925406
+
+Feature 4:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'4': [1, 2, 2, 0], '6': [1, 1, 0, 1], '1': [1, 2, 0, 1]}
+Split Info: 1.5545851693377997
+Info: 1.5303773313833566
+Gain: 0.2299913689772793
+
+Feature 5:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'medium': [1, 1, 0, 0], 'small': [1, 3, 0, 1], 'big': [1, 1, 2, 1]}
+Split Info: 1.4833557549816874
+Info: 1.538699453892513
+Gain: 0.23542501359219184
+
+Feature 6:
+Labels (class: index): {'Q': 0, 'S': 1, 'R': 2, 'P': 3}
+Split made: {'high': [1, 2, 1, 1], 'medium': [2, 1, 1, 0], 'low': [0, 2, 0, 1]}
+Split Info: 1.5545851693377994
+Info: 1.5303773313833569
+Gain: 0.22999136897727918
+
+Splitting on feature 1 with gain of 0.27766444219534064
